@@ -10,6 +10,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "11.9.3",
+    "@mantine/core": "5.0.0",
+    "@mantine/ds": "5.0.0",
+    "@mantine/hooks": "5.0.0",
+    "@tabler/icons": "1.78.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -34,6 +39,9 @@
     "vite": "3.0.0"
   },
   "lint-staged": {
-    "*.ts": ["eslint", "prettier --write"]
+    "*.ts": [
+      "eslint",
+      "prettier --write"
+    ]
   }
 }
