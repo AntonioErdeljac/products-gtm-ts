@@ -1,11 +1,7 @@
 import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      Hello products-gtm-ts
-    </div>
-  )
+  return <div className="App">Hello products-gtm-t</div>;
 }
 
-export default App
+export default App;
