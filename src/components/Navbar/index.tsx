@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Header, Group, Burger, Container, Transition, Paper } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantine/ds';
 
 import useStyles from './styles';
+import Logo from '../Logo';
 
 const HEADER_HEIGHT = 60;
 
@@ -34,13 +34,11 @@ const Navbar: React.FC<Props> = ({ links }) => {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <MantineLogo size={28} />
+        <Logo />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>

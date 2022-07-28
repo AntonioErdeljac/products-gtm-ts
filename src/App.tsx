@@ -1,29 +1,23 @@
 import React from 'react';
-import { AppShell, MantineProvider, Text } from '@mantine/core';
+import { AppShell, MantineProvider } from '@mantine/core';
 
-import { Navbar } from './components';
+import { Hero, Navbar, Products } from './components';
 
 function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <AppShell
         padding="md"
-        header={
-          <Navbar
-            links={[
-              { label: 'Home', link: '#home' },
-              { label: 'Products', link: '#products' },
-            ]}
-          />
-        }
+        header={<Navbar links={[{ label: 'Products', link: '#products' }]} />}
         styles={(theme) => ({
           main: {
             backgroundColor:
-              theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+              theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.white,
           },
         })}
       >
-        <Text>Hello products-gtm-t</Text>
+        <Hero />
+        <Products />
       </AppShell>
     </MantineProvider>
   );
