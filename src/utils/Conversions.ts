@@ -15,9 +15,9 @@ class Conversions {
     this.utmModule.init('d8fb925e4ff99320588cc91dcea88a10', { debug: true });
   }
 
-  onProductSelection(id: string) {
+  onProductSelection(id: string, email: string) {
     console.log('Product ID conversion');
-    this.adsModule('event', 'product_selection', { productId: id });
+    this.adsModule('event', 'product_selection', { productId: id, email });
   }
 }
 

@@ -20,17 +20,25 @@ type Props = {
 export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
   const { classes } = useStyles();
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const onChangeEmail = useCallback((event: any) => {
+    setEmail(event.target.value);
+  }, []);
 
   const submit = useCallback(() => {
     if (!selectedProduct) {
       return;
     }
 
-    Conversions.onProductSelection(selectedProduct);
+    Conversions.onProductSelection(selectedProduct, email);
 
     setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 1000);
-  }, [selectedProduct]);
+    setTimeout(() => {
+      setIsLoading(false);
+      setEmail('');
+    }, 1000);
+  }, [selectedProduct, email]);
 
   return (
     <Paper style={{ position: 'relative' }}>
@@ -45,6 +53,8 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
               <TextInput disabled={!selectedProduct} label="Your name" placeholder="Your name" />
               <TextInput
+                value={email}
+                onChange={onChangeEmail}
                 disabled={!selectedProduct}
                 label="Your email"
                 placeholder="Your email"
