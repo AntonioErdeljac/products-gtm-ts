@@ -11,6 +11,7 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
   const { classes } = useStyles();
 
   const submit = useCallback(() => {
+    console.log('Event created');
     window.gtag('event', 'conversion', { productId: selectedProduct });
   }, [selectedProduct]);
 
