@@ -1,12 +1,12 @@
 import mixpanel from 'mixpanel-browser';
 
 class Conversions {
-  eventModule: any;
+  adsModule: any;
 
   utmModule: any;
 
   constructor() {
-    this.eventModule = window.gtag;
+    this.adsModule = window.gtag;
     this.utmModule = mixpanel;
   }
 
@@ -17,7 +17,7 @@ class Conversions {
 
   onProductSelection(id: string) {
     console.log('Product ID conversion');
-    this.eventModule('event', 'product_selection', { productId: id });
+    this.adsModule('event', 'product_selection', { productId: id });
   }
 }
 
