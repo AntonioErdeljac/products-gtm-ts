@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid } from '@mantine/core';
 
 import useStyles from './styles';
@@ -9,6 +9,10 @@ type Props = {
 
 export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
   const { classes } = useStyles();
+
+  const submit = useCallback(() => {
+    window.gtag('event', 'conversion', { productId: selectedProduct });
+  }, [selectedProduct]);
 
   return (
     <Paper>
@@ -37,7 +41,12 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
             />
 
             <Group position="right" mt="md">
-              <Button disabled={!selectedProduct} type="submit" className={classes.control}>
+              <Button
+                onSubmit={submit}
+                disabled={!selectedProduct}
+                type="submit"
+                className={classes.control}
+              >
                 Send request
               </Button>
             </Group>
