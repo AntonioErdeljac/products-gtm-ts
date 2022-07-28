@@ -6,7 +6,7 @@ class Conversions {
   utmModule: any;
 
   constructor() {
-    this.adsModule = window.gtag;
+    this.adsModule = window.gtag; // Replace with Ads
     this.utmModule = mixpanel;
   }
 
