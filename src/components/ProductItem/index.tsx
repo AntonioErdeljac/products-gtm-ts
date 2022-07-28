@@ -1,7 +1,7 @@
 import React from 'react';
-
-import { UnstyledButton, Checkbox, Text } from '@mantine/core';
+import { UnstyledButton, Checkbox, Text, List, ThemeIcon } from '@mantine/core';
 import { useUncontrolled } from '@mantine/hooks';
+import { IconCircleCheck } from '@tabler/icons';
 
 import useStyles from './styles';
 
@@ -48,6 +48,20 @@ export const ProductItem: React.FC<
         <Text size="sm" color="dimmed">
           {description}
         </Text>
+        <List
+          spacing="xs"
+          size="sm"
+          mt={20}
+          icon={
+            <ThemeIcon color="teal" size={24} radius="xl">
+              <IconCircleCheck size={16} />
+            </ThemeIcon>
+          }
+        >
+          <List.Item>Feature 1</List.Item>
+          <List.Item>Feature 2</List.Item>
+          <List.Item>Feature 3</List.Item>
+        </List>
       </div>
     </UnstyledButton>
   );

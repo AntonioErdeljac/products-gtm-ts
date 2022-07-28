@@ -4,3 +4,4 @@ export { default as Hero } from './Hero';
 export { default as Products } from './Products';
 export { default as ContactForm } from './ContactForm';
 export { default as ProductItem } from './ProductItem';
+export { default as Footer } from './Footer';

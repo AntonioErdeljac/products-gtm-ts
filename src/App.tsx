@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { AppShell, MantineProvider } from '@mantine/core';
 
-import { Hero, Navbar, Products } from './components';
+import { Hero, Navbar, Products, Footer } from './components';
 import { Conversions } from './utils';
 
 function App() {
@@ -12,6 +12,9 @@ function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <AppShell
+        footer={
+          <Footer data={[{ title: 'About', links: [{ label: 'Products', link: '#products' }] }]} />
+        }
         padding="md"
         header={<Navbar links={[{ label: 'Products', link: '#products' }]} />}
         styles={(theme) => ({

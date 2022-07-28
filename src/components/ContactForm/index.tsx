@@ -72,7 +72,7 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
             <Group position="right" mt="md">
               <Button
                 onClick={submit}
-                disabled={!selectedProduct}
+                disabled={!selectedProduct || !email}
                 type="submit"
                 className={classes.control}
               >
