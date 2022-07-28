@@ -15,10 +15,12 @@
     "@mantine/ds": "5.0.0",
     "@mantine/hooks": "5.0.0",
     "@tabler/icons": "1.78.1",
+    "mixpanel-browser": "2.45.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/mixpanel-browser": "2.38.0",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.31.0",

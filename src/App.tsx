@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppShell, MantineProvider } from '@mantine/core';
 
 import { Hero, Navbar, Products } from './components';
+import { Conversions } from './utils';
 
 function App() {
+  useEffect(() => {
+    Conversions.init();
+  }, []);
+
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <AppShell

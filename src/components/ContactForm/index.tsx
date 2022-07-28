@@ -1,5 +1,14 @@
-import React, { useCallback } from 'react';
-import { Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid } from '@mantine/core';
+import React, { useCallback, useState } from 'react';
+import {
+  Paper,
+  Text,
+  TextInput,
+  Textarea,
+  Button,
+  Group,
+  SimpleGrid,
+  LoadingOverlay,
+} from '@mantine/core';
 
 import useStyles from './styles';
 import { Conversions } from '../../utils';
@@ -8,21 +17,24 @@ type Props = {
   selectedProduct?: string;
 };
 
-const conversions = new Conversions();
-
 export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
   const { classes } = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
 
   const submit = useCallback(() => {
     if (!selectedProduct) {
       return;
     }
 
-    conversions.onProductSelection(selectedProduct);
+    Conversions.onProductSelection(selectedProduct);
+
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 1000);
   }, [selectedProduct]);
 
   return (
-    <Paper>
+    <Paper style={{ position: 'relative' }}>
+      <LoadingOverlay visible={isLoading} />
       <div className={classes.wrapper}>
         <form className={classes.form} onSubmit={(event) => event.preventDefault()}>
           <Text size="lg" weight={700} className={classes.title}>
