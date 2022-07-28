@@ -2,17 +2,23 @@ import React, { useCallback } from 'react';
 import { Paper, Text, TextInput, Textarea, Button, Group, SimpleGrid } from '@mantine/core';
 
 import useStyles from './styles';
+import { Conversions } from '../../utils';
 
 type Props = {
   selectedProduct?: string;
 };
 
+const conversions = new Conversions();
+
 export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
   const { classes } = useStyles();
 
   const submit = useCallback(() => {
-    console.log('Event created');
-    window.gtag('event', 'conversion', { productId: selectedProduct });
+    if (!selectedProduct) {
+      return;
+    }
+
+    conversions.onProductSelection(selectedProduct);
   }, [selectedProduct]);
 
   return (
