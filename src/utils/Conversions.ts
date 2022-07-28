@@ -13,14 +13,11 @@ class Conversions {
   init() {
     console.log('UTM Tracking Initialized');
     this.utmModule.init('d8fb925e4ff99320588cc91dcea88a10', { debug: true });
-    this.utmModule.track('Visit', {
-      source: "Pat's affiliate site",
-    });
   }
 
   onProductSelection(id: string) {
     console.log('Product ID conversion');
-    this.eventModule('event', 'conversion', { productId: id });
+    this.eventModule('event', 'product_selection', { productId: id });
   }
 }
 
