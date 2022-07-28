@@ -15,7 +15,7 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
       <div className={classes.wrapper}>
         <form className={classes.form} onSubmit={(event) => event.preventDefault()}>
           <Text size="lg" weight={700} className={classes.title}>
-            Talk to us {selectedProduct ? ` about Product ${selectedProduct}` : ''}
+            Notify me {selectedProduct ? ` about Product ${selectedProduct}` : ''}
           </Text>
 
           <div className={classes.fields}>
@@ -38,7 +38,7 @@ export const ContactForm: React.FC<Props> = ({ selectedProduct }) => {
 
             <Group position="right" mt="md">
               <Button disabled={!selectedProduct} type="submit" className={classes.control}>
-                Send message
+                Send request
               </Button>
             </Group>
           </div>
